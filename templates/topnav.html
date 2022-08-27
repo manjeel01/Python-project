@@ -1,0 +1,57 @@
+{% if user.is_superuser %}
+<div class="row">
+    <div class="col-md-4 mt-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                Notice Board
+            </div>
+            <div class="card-body">
+                <marquee behavior="" direction="">
+                    <h3 class="my-1">New products available</h3>
+                </marquee>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 mt-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                Dashboard Statistics
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a class="text-decoration-none text-dark" href="{% url 'staff' %}">
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center">
+                                    <h4>Staff <i class="fas fa-users"></i></h4>
+                                    <h3>{{ workers_count }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="text-decoration-none text-dark" href="{% url 'products' %}">
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center">
+                                    <h4>Products <i class="fas fa-box"></i></h4>
+                                    <h3>{{ product_count }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="text-decoration-none text-dark" href="{% url 'order' %}">
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center">
+                                    <h4>Order <i class="fas fa-shipping-fast"></i></h4>
+                                    <h3>{{ orders_count }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

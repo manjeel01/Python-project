@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <title>{% block title%} Products_delete page{% endblock %}</title>
+  </head>
+  <body>
+   
+{% include 'nav.html' %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border bg-white p-3">
+                <h3>Delete Item</h3>
+                <hr>
+                <div class="alert alert-danger">
+                    <h4> Are you sure you want to delete?</h4>
+
+                </div>
+                <form method="POST">
+                   {% csrf_token %}
+                   {{ form }}
+                   <a class="btn btn-secondary"href="{% url 'products' %}">cancel</a>
+                    <input class="btn btn-danger" type="submit" value="Confirm">
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</body>
+</html>
